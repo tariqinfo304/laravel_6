@@ -282,15 +282,17 @@ Route::get("user_list","EVSController@get_list");
 
 
 
-/*
+
 
 ////////////////////////////////
 ////////// view ///////////////
 //////////////////////////////
 
 Route::get("/simple_blade","BladeController@simple");
+Route::get("/part_1","BladeController@part_1");
 Route::get("/blade_lect_1","BladeController@lec_1");
 
+/*
 
 /////////////////////////////////////
 //////////////// Database //////////
