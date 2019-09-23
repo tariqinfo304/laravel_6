@@ -24,11 +24,18 @@ class BladeController extends Controller
 
     function part_1()
     {
-    	return view("child_view",["title"=>"Child View"]);
+
+        $arr = ["ves" => "lahore","name"=>"tariq","year"=>2019];
+
+        $json = json_encode($arr);
+
+       // dd($json);
+
+    	return view("child_view",["title"=>"Child View",
+            "json" => $json,
+
+            "users" => ["admin","xyz","evs"]]);
     }
-
-
-
 
     function lec_1()
     {
