@@ -301,6 +301,10 @@ Route::get("/blade_lect_1","BladeController@lec_1");
 
 
 Route::get("db","DBController@db");
+
+Route::get("db_el","DbElController@db");
+
+
 /*
 Route::get("db_route","DBController@db_index");
 
