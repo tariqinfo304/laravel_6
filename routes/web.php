@@ -292,12 +292,16 @@ Route::get("/simple_blade","BladeController@simple");
 Route::get("/part_1","BladeController@part_1");
 Route::get("/blade_lect_1","BladeController@lec_1");
 
-/*
+
 
 /////////////////////////////////////
 //////////////// Database //////////
 ///////////////////////////////////
 
+
+
+Route::get("db","DBController@db");
+/*
 Route::get("db_route","DBController@db_index");
 
 /////////////////////////////
