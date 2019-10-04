@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Model\UserModel;
+use App\Model\SimModel;
+use App\Model\PhoneModel;
+use App\Model\UserRightsModel;
 use DB;
 
 class DbElController extends Controller
@@ -92,7 +95,109 @@ class DbElController extends Controller
 		//var_dump($user_delete->destroy(3));
 		var_dump($user_delete->destroy([3,5]));
 		*/
-		
+	
+    }
+
+
+    function one_to_one()
+    {
+        /*
+        $user = new UserModel();
+
+        $user = $user->find(1);
+
+        $sim = $user->sim;
+
+        dd($sim);
+        */
+
+
+        $sim = new SimModel();
+        $sim = $sim->find("1");
+
+
+        $user = $sim->user_info;
+
+        dd($user);
+
+    }
+
+    function one_to_many()
+    {
+         
+
+         /*
+        $user = new UserModel();
+
+        $user = $user->find(1);
+
+        $sim = $user->sim;
+
+
+        $phone = $user->phones;
+
+        dd($phone);
+        */
+
+        $phone = new PhoneModel();
+        $phone = $phone->find(1);
+
+
+        $user = $phone->user;
+
+        dd($user);
+
+        
+    }
+
+    function many_to_many()
+    {
+        /*
+        $user = new UserModel();
+
+        $user = $user->find(1);
+
+        $sim = $user->sim;
+
+
+        $phone = $user->phones;
+
+
+        $rights = $user->rights;
+
+        dd($rights);
+
+        */
+
+        $rights = new UserRightsModel();
+
+
+        $rights = $rights->find(1);
+
+        $user = $rights->user;
+
+        dd($user);
+
+    }
+
+
+    function db_relation()
+    {
+        /*
+        $info = DB::table("user")
+            ->join("user_sim","user_sim.user_id","=","user.id")
+            ->get();
+
+        dd($info);
+        */
+
+        $info = DB::table("user")
+            ->join("user_right_mapping","user_right_mapping.user_id","=","user.id")
+            ->join("user_rights","user_rights.user_right_id","=","user_right_mapping.right_id")
+            ->select("user_rights.name as right_name","user.*")
+            ->get();
+
+        dd($info);
 
 
     }

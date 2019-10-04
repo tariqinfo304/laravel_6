@@ -304,6 +304,14 @@ Route::get("db","DBController@db");
 
 Route::get("db_el","DbElController@db");
 
+Route::get('one_to_one',"DbElController@one_to_one");
+
+Route::get('one_to_many',"DbElController@one_to_many");
+
+Route::get('many_to_many',"DbElController@many_to_many");
+
+
+Route::get('db_relation',"DbElController@db_relation");
 
 /*
 Route::get("db_route","DBController@db_index");
