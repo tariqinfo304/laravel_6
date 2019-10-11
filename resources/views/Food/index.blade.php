@@ -1,5 +1,12 @@
 @extends('../Layouts/layout')
 
+
+@section("address")
+  
+  {{$address}}
+  
+@endsection
+
 @section('body-content')
 
 		<section class="ftco-section">

@@ -32,14 +32,14 @@
 		            <div class="row d-flex">
 		                <div class="col-md pr-4 d-flex topper align-items-center">
 		                    <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
-		                    <span class="text">+ @yield("phone_no","default_value")</span>
+		                    <span class="text">+ @yield("phone_no","0303-4823405")</span>
 		                </div>
 		                <div class="col-md pr-4 d-flex topper align-items-center">
 		                    <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
-		                    <span class="text">@yield("email","default@gmail.com")</span>
+		                    <span class="text">@yield("email","evs@gmail.com")</span>
 		                </div>
 		                <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
-		                    <span class="text">@yield("address","default_address")</span>
+		                    <span class="text">@yield("address","Lahore Arifa Tower")</span>
 		                </div>
 		            </div>
 		        </div>
@@ -54,16 +54,6 @@
 
 	  	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		    <div class="container">
-
-		    	@if(!session("username"))
-		    	
-		    		<li class="nav-item"><a href="{{ url('login') }}" class="nav-link">Login</a></li>
-		    	
-		    	@else
-		    	
-
-
-
 
 		      <a class="navbar-brand" href="index.php">Vegefoods</a>
 		      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,20 +77,12 @@
 		          <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
 		           <li class="nav-item"><a href="{{ url('register_user') }}" class="nav-link">Register USer</a></li>
 		           <li class="nav-item"><a href="{{ url('user_list') }}" class="nav-link">User List</a></li>
-		           
-		           <li class="nav-item"><a href="{{ url('add_shop') }}" class="nav-link">Shop Add</a></li>
-		           <li class="nav-item"><a href="{{ url('shop_list') }}" class="nav-link">Shop List</a></li>
-
-		           <li class="nav-item"><a href="{{ url('cart_list') }}" class="nav-link">Cart List</a></li>
-
-		           <li class="nav-item"><a href="{{ url('user_add_form') }}" class="nav-link">Middleware</a></li>
-  					<li class="nav-item"><a href="{{ url('logout') }}" class="nav-link">Logout</a></li>
-
+		     
 		          <li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
 		        </ul>
 		      </div>
 		  
-		       @endif
+		    {{--  @endif --}} 
 		    </div>
 		</nav>
   	@show

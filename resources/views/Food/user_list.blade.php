@@ -7,16 +7,15 @@
 		
 	<div class="container">
 		
-		{{ $data->links() }}
+		{{-- $data->links() --}}
+
 		<div class="row">
 			<table class="table table-hover">
 			    <thead>
 			        <tr>
 			            <th>Name</th>
 			            <th>Email</th>
-			            <th>Date Of Birth</th>
-			            <th>Height</th>
-			            <th>Weight</th>
+			            <th>Username</th>
 			            <th>Edit</th>
 			            <th>Delete</th>
 			        </tr>
@@ -26,11 +25,9 @@
 			    		<tr >
 				            <td>{{ $row->name }}</td>
 				            <td>{{ $row->email }}</td>
-				            <td>{{ $row->dob }}</td>
-				            <td>{{ $row->height }} </td>
-				            <td>{{ $row->weight }}</td>
-				            <td><button type="button"> Edit</button></td>
-				            <td><button type="button">Delete</button></td>
+				            <td>{{ $row->username }}</td>
+				            <td><button type="button"><a href="{{ url('register_user',$row->id) }}">Edit</a></button></td>
+				            <td><button type="button"><a href="{{ url('delete',$row->id) }}">Delete</a></button></td>
 			        </tr>
 
 			    	@endforeach
@@ -38,7 +35,7 @@
 			    </tbody>
 			</table>
 		</div>
-		{{ $data->links() }}
+		{{-- $data->links() --}}
 	</div>	
 
 

@@ -14,7 +14,6 @@ class UserRightsModel extends Model
     public $timestamps=false;
 
 
-
     function user()
    	{
    		return $this->belongsToMany("App\Model\UserModel","user_right_mapping","user_id","right_id");
