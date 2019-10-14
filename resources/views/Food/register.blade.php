@@ -61,13 +61,13 @@
             </div>
         </div>
 
-        <!--
+        
         <div class="form-group">
             <div class="col-sm-6">
                 <input type="file" name="file_attach"/>
             </div>
         </div>
-    -->
+    
         <button type="submit" class="btn btn-primary btn-block">Register</button>
     </form>
 </div>

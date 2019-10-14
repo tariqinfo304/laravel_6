@@ -37,10 +37,13 @@ class FoodController extends Controller
     {
         //print_r($req->session()->all());
         $user = new UserModel();
-        $user_list = $user->all();
+        //$user_list = $user->all();
 
         //{ (n -1) * total_record } , total_record
-        //$user_list = $user->paginate(2);
+        
+        $user_list = $user->paginate(1);
+
+
        // $user_list = $user->simplePaginate(2);
        // dd($user_list);
         return view("Food/user_list",['data' => $user_list]);
@@ -81,6 +84,47 @@ class FoodController extends Controller
             die("not exist");
         }
         */
+
+
+         ///file handling //
+        
+        if ($request->hasFile('file_attach')) {
+            
+            if ($request->file('file_attach')->isValid()) {
+
+
+                    /*
+                $file = $request->file('file_attach');
+                
+
+               // dd(  $file);
+                echo $request->file_attach->path();
+                echo "<br/>";
+                var_dump($request->file_attach->extension()). "<br/>";
+
+                die("ok");
+                
+                //$path = $request->file_attach->store("images");
+               // echo $request->file_attach->path();;
+
+               */
+                $ext =  $request->file_attach->extension();
+                $name = "file_".rand().".".$ext;
+                /*
+                if($ext)
+                    $name = "file_".rand().".".$ext;
+                else
+                    $name = "file_".rand();
+                    */
+
+                $path = $request->file_attach->storeAs("images",$name );
+                die( $path);
+            }   
+        }
+        else
+        {
+            die("no");
+        }
 
 
        $request->validate([
