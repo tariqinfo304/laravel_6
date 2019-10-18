@@ -314,14 +314,34 @@ Route::get('many_to_many',"DbElController@many_to_many");
 Route::get('db_relation',"DbElController@db_relation");
 
 
-	//////////////////////////////////
-	//////////// Food Website in Laravel
-	////////////////////////////////////
+//////////////////////////////////
+//////////// Food Website in Laravel
+////////////////////////////////////
 
-	Route::get("/","FoodController@index");
-	Route::get('/register_user/{id?}','FoodController@register_view');
-	Route::post('/register_save','FoodController@save_data');
-	Route::get("/user_list","FoodController@user_list");
+//Route::get("/","FoodController@index");
+Route::get('/register_user/{id?}','FoodController@register_view');
+Route::post('/register_save','FoodController@save_data');
+Route::get("/user_list","FoodController@user_list");
 
-	Route::get("/delete/{id}","FoodController@delete");
-	
+Route::get("/delete/{id}","FoodController@delete");
+
+
+//////////////////////////////////////
+///////////////// Middleware ////////
+/////////////////////////////////////
+/*
+use App\Http\Middleware\TestMiddleware;
+
+Route::get("/","FoodController@index")->middleware(TestMiddleware::class);
+*/
+Route::get("/","FoodController@index")->middleware("Test");
+
+
+///////////////////////
+//////////// Session /
+///////////////////////
+Route::get("/login","SessionController@login");
+Route::post("/do_login","SessionController@do_login");
+Route::get("/logout","SessionController@logout");
+
+

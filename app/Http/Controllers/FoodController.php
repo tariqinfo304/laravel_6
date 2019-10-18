@@ -11,8 +11,12 @@ class FoodController extends Controller
 {
     function index()
     {
+
+//echo "controller call here";
+        
     	return view('Food/index',["phone_no" =>"0303-4672394"
             ,"email" => "evs@gmail.com","address" => "Lahore ALi Sher"]);
+            
     }
 
     function register_view($id=0)
