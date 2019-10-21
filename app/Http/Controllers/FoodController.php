@@ -92,10 +92,10 @@ class FoodController extends Controller
 
          ///file handling //
         
-        if ($request->hasFile('file_attach')) {
+        /*if ($request->hasFile('file_attach')) {
             
             if ($request->file('file_attach')->isValid()) {
-
+*/
 
                     /*
                 $file = $request->file('file_attach');
@@ -112,15 +112,15 @@ class FoodController extends Controller
                // echo $request->file_attach->path();;
 
                */
-                $ext =  $request->file_attach->extension();
-                $name = "file_".rand().".".$ext;
+              //  $ext =  $request->file_attach->extension();
+               // $name = "file_".rand().".".$ext;
                 /*
                 if($ext)
                     $name = "file_".rand().".".$ext;
                 else
                     $name = "file_".rand();
                     */
-
+/*
                 $path = $request->file_attach->storeAs("images",$name );
                 die( $path);
             }   
@@ -129,7 +129,7 @@ class FoodController extends Controller
         {
             die("no");
         }
-
+*/
 
        $request->validate([
             'name' => 'required|max:255',
@@ -147,7 +147,7 @@ class FoodController extends Controller
         $user = new UserModel();
         $user->name = $name;
         $user->email = $email;
-        $user->password = $password;
+        $user->password = encrypt($password);
         $user->username = $username;
 
         $user->save();

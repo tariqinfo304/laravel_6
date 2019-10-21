@@ -127,12 +127,12 @@ class SessionController extends Controller
 
 
         $user = UserModel::where("username",$request->username)
-                    ->where("password",$request->password)
                     ->get();
 
-
-        if(!empty($user) && isset($user[0]->username))
+        if(!empty($user) && isset($user[0]->username) 
+            && decrypt($user[0]->password) == $request->password )
         {
+
           session(['username' => $user[0]->username,
 
                   "id" => $user[0]->id]);
