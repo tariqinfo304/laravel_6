@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,8 +20,10 @@ Route::get("/",function(){
 //////////////////////////////
 //simple route 
 
-Route::get("/",function(){
-	echo "Home<br/>";
+Route::get("/file",function(){
+		
+//we can access only that file which is in public folder in stoarge/app folder
+	echo asset("storage/LESCO_Eng.jpg");
 });
 
 
@@ -334,14 +335,22 @@ use App\Http\Middleware\TestMiddleware;
 
 Route::get("/","FoodController@index")->middleware(TestMiddleware::class);
 */
-Route::get("/","FoodController@index")->middleware("Test");
+
+//Route::get("/","FoodController@index")->middleware("Test");
 
 
 ///////////////////////
 //////////// Session /
 ///////////////////////
+
+/*
 Route::get("/login","SessionController@login");
 Route::post("/do_login","SessionController@do_login");
 Route::get("/logout","SessionController@logout");
+*/
 
+Route::get("api","HomeController@api");
 
+//auth //
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');

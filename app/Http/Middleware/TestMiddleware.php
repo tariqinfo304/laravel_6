@@ -14,18 +14,24 @@ class TestMiddleware
      * @return mixed
      */
     public function handle($request, Closure $next)
-    {
+    {   
+
+        /*
 
         if(!session("username"))
         {
             return redirect("login");
         }
+        */
        // die("PRe TestMiddleware");
         
         return $next($request);
+
+
         //$data = $next($request);
 
        // print_r($data);
        // die("Post TestMiddleware");
+        
     }
 }
