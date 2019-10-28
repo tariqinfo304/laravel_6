@@ -336,21 +336,27 @@ use App\Http\Middleware\TestMiddleware;
 Route::get("/","FoodController@index")->middleware(TestMiddleware::class);
 */
 
-//Route::get("/","FoodController@index")->middleware("Test");
+Route::get("/","FoodController@index");//->middleware("Test");
 
 
+Route::get("/add_product","FoodController@add_product_form");
+Route::post("/add_product","FoodController@add_product");
+Route::get("/add_cart/{id}","FoodController@add_cart");
+Route::get("/cart_list","FoodController@cart_list");
+Route::get("/delete_cart/{id}","FoodController@delete_cart");
+Route::get("/product_list","FoodController@product_list");
 ///////////////////////
 //////////// Session /
 ///////////////////////
 
-/*
+
 Route::get("/login","SessionController@login");
 Route::post("/do_login","SessionController@do_login");
 Route::get("/logout","SessionController@logout");
-*/
+
 
 Route::get("api","HomeController@api");
 
 //auth //
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+//Auth::routes();
+//Route::get('/home', 'HomeController@index')->name('home');

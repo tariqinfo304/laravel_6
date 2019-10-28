@@ -6,9 +6,65 @@ use Illuminate\Http\Request;
 use App\Model\UserModel;
 use App\Http\Requests\RegisterUser;
 use App\Rules\Uppercase;
+use DB;
 
 class FoodController extends Controller
 {
+
+
+
+    function delete_cart($c_id)
+    {
+        DB::table("cart")->where("c_id",$c_id)->delete();
+
+        return redirect("cart_list");
+    }
+    function cart_list()
+    {
+        $cart_list = DB::table("cart")
+        ->join("user","user.id","=","cart.user_id")
+        ->join("product","product.p_id","=","cart.p_id")
+        ->select("user.name as user_name","product.name as p_name","cart.c_id","product.price"
+            ,"cart.quantity")
+        ->get();
+
+        return view("Food.cart_list",["data" => $cart_list]);
+    }
+
+    function add_cart($p_id)
+    {
+        $user_id = session("id");
+
+        DB::table("cart")->insert([
+            "user_id" => $user_id,
+            "p_id" => $p_id
+        ]);
+
+        //call sms API here
+
+        return redirect("cart_list");
+
+    }
+
+    function add_product_form()
+    {
+        return view("Food.add_product");
+    }
+    function add_product(Request $req)
+    {
+        DB::table("product")->insert(
+            ["name"=>$req->name,"price" => $req->price]);
+        return redirect("/product_list");
+    }
+
+
+    function product_list()
+    {
+        $list = DB::table("product")->get();
+        return view("Food.list",["data" => $list]);
+    }
+
+
     function index()
     {
 

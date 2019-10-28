@@ -83,7 +83,11 @@
 		           <li class="nav-item"><a href="{{ url('register_user') }}" class="nav-link">Register USer</a></li>
 		           <li class="nav-item"><a href="{{ url('user_list') }}" class="nav-link">User List</a></li>
 
+		            <li class="nav-item"><a href="{{ url('add_product') }}" class="nav-link">add_product</a></li>
+
+		             <li class="nav-item"><a href="{{ url('product_list') }}" class="nav-link">product_list</a></li>
 		           
+		            <li class="nav-item"><a href="{{ url('cart_list') }}" class="nav-link">Cart List</a></li>
 
 		           <li class="nav-item"><a href="{{ url('logout') }}" class="nav-link">Logout</a></li>
 		     

@@ -130,7 +130,7 @@ class SessionController extends Controller
                     ->get();
 
         if(!empty($user) && isset($user[0]->username) 
-            && decrypt($user[0]->password) == $request->password )
+            && $user[0]->password == $request->password )
         {
 
           session(['username' => $user[0]->username,
